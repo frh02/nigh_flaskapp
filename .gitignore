@@ -1,0 +1,5 @@
+*.mp4
+static/files/*.mp4
+static/images/*.png
+static/images/*.mp4
+*.jpg
