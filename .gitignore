@@ -1,5 +1,20 @@
+# Models
+*.h5
+*.pt
+*.onnx
+*.DS_Store
+*.pkl
+
+# csv data
+*.csv
+
+# plots and data
+*.png
+*.jpg
+*.jpeg
 *.mp4
+*.zip
+
 static/files
 static/images
-*.jpg
-*.h5
+
