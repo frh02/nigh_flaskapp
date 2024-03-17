@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sit to Stand</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rom.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/rom">Range of Motion</a></li>
+            <li><a href="/sts">Sit to Stand</a></li>
+            <li><a href="/tug">Timed up and Go</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-video">
+        <h1>Sit to Stand</h1>
+        <section class="col-sm " >
+            <img src="{{ url_for('video_for_sts') }}"   alt="Upload video">
+        </section>
+        <div class="new" >
+            <form method = 'POST' enctype="multipart/form-data" style="align-content: center; text-align: center;display: flex;">
+              {{form.hidden_tag()}}
+              {{form.file(class_="custom-file-input")}}
+      
+              <div>
+              <button type="submit" name="favorite" value="x" class="btnCustom">
+                  Submit
+              </button>
+            </div>
+            </form>
+            <form method='POST' action='/stop_video'>
+                <button type="submit" class="btnCustom">Stop Video</button>
+            </form>
+          </div>
+     
+        </div>
+    </div>
+</body>
+</html>
