@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timed Up and Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rom.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/rom">Range of Motion</a></li>
+            <li><a href="/sts">Sit to Stand</a></li>
+            <li><a href="/tug">Timed up and Go</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-video">
+        <h1>Timed Up and Go</h1>
+        <section class="col-sm" >
+            <img src="{{ url_for('webapp_tug') }}"   alt="Upload video">
+        </section>
+        <!-- Button to stop the video -->
+        <form action="/stop_video" method="post">
+            <button type="submit">Stop Video</button>
+        </form>
+    </div>
+</body>
+</html>
