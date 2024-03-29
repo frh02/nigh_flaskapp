@@ -101,3 +101,4 @@ Werkzeug==3.0.1
 wrapt==1.14.1
 WTForms==3.1.2
 zipp==3.17.0
+gunicorn
