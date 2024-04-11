@@ -143,7 +143,6 @@ libclang
 Markdown
 MarkupSafe
 matplotlib
-mediapipe
 ml-dtypes
 mpmath
 mypy-extensions
@@ -205,3 +204,8 @@ wrapt
 WTForms
 zipp
 gunicorn
+streamlit
+opencv-python-headless
+numpy
+protobuf>=3.11,<4
+mediapipe==0.10.11
