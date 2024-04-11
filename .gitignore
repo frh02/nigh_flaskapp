@@ -1,5 +1,5 @@
 # Models
-*.h5
+# *.h5
 *.pt
 *.onnx
 *.DS_Store
