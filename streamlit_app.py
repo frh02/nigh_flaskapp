@@ -28,7 +28,7 @@ def video_processing(model_func, video_path):
         frame_bytes = buffer.tobytes()
         yield frame_bytes
 
-st.title("Video Analysis Platform")
+st.title("Nightingale - Enhance Performance")
 uploaded_file = st.file_uploader("Upload a video file", type=['mp4', 'avi', 'mov'])
 
 if uploaded_file is not None:
