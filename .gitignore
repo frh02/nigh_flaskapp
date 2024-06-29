@@ -14,7 +14,11 @@
 *.jpeg
 *.mp4
 *.zip
+*.spec
 
 static/files
 static/images
+build/
+dist/
+temp_upload/
 
