@@ -222,4 +222,4 @@ def webapp_tug():
     return Response(generate_frames_web_tug(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(host='0.0.0.0', port=5001)
