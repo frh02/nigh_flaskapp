@@ -196,7 +196,7 @@ def video_for_rom():
 @app.route('/webapp')
 def webapp_rom():
     #return Response(generate_frames(path_x = session.get('video_path', None),conf_=round(float(session.get('conf_', None))/100,2)),mimetype='multipart/x-mixed-replace; boundary=frame')
-    return Response(generate_frames_web_rom(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_frames_web_rom(path_x=1), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route('/video/sts')
@@ -208,7 +208,7 @@ def video_for_sts():
 @app.route('/webapp/sts')
 def webapp_sts():
     #return Response(generate_frames(path_x = session.get('video_path', None),conf_=round(float(session.get('conf_', None))/100,2)),mimetype='multipart/x-mixed-replace; boundary=frame')
-    return Response(generate_frames_web_sts(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_frames_web_sts(path_x=1), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/video/tug')
 def video_for_tug():
@@ -219,7 +219,7 @@ def video_for_tug():
 @app.route('/webapp/tug')
 def webapp_tug():
     #return Response(generate_frames(path_x = session.get('video_path', None),conf_=round(float(session.get('conf_', None))/100,2)),mimetype='multipart/x-mixed-replace; boundary=frame')
-    return Response(generate_frames_web_tug(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_frames_web_tug(path_x=1), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001)
