@@ -207,5 +207,5 @@ gunicorn
 streamlit
 opencv-python-headless
 numpy
-protobuf>=3.11,<4
+protobuf==4.25.3
 mediapipe==0.10.13
