@@ -47,7 +47,7 @@ numpy
 oauthlib
 onnx
 opencv-contrib-python
-opencv-python
+opencv-python-headless
 openvino
 openvino-dev
 openvino-telemetry
