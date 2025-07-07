@@ -235,7 +235,7 @@ def webapp_tug():
     return Response(generate_frames_web_tug(path_x=1), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 users = {
-    "user1": generate_password_hash("password1"),
+    "charlene.chu@utoronto.ca": generate_password_hash("wwzx0wzTy83LDWtP/bnaGEuLCL2+CS5eij02FKGY4Jw="),
     "user2": generate_password_hash("password2"),
     # Add more users as needed
 }
