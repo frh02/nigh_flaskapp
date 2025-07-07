@@ -1,7 +1,12 @@
 from flask import Flask, render_template, Response,jsonify,request,session, redirect, url_for
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
+import logging
+from datetime import datetime
+import secrets 
 
 from flask_wtf import FlaskForm
-
 
 from wtforms import FileField, SubmitField,StringField,DecimalRangeField,IntegerRangeField
 from werkzeug.utils import secure_filename
@@ -19,6 +24,12 @@ from sts_inference import video_sts
 from tug_inference import video_tug
 
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(32))
+auth = HTTPBasicAuth()
+
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+logger = logging.getLogger(__name__)
+
 
 app.config['SECRET_KEY'] = 'farhan'
 app.config['UPLOAD_FOLDER'] = 'static/files'
@@ -98,9 +109,11 @@ def generate_frames_web_tug(path_x):
 
 @app.route('/', methods=['GET','POST'])
 @app.route('/home', methods=['GET','POST'])
+@auth.login_required
 def home():
     session.clear()
     return render_template('index.html')
+
 # Rendering the Webcam Rage
 @app.route('/stop_video', methods=['POST'])
 def stop_video():
@@ -221,7 +234,23 @@ def webapp_tug():
     #return Response(generate_frames(path_x = session.get('video_path', None),conf_=round(float(session.get('conf_', None))/100,2)),mimetype='multipart/x-mixed-replace; boundary=frame')
     return Response(generate_frames_web_tug(path_x=1), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+users = {
+    "user1": generate_password_hash("password1"),
+    "user2": generate_password_hash("password2"),
+    # Add more users as needed
+}
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and check_password_hash(users.get(username), password):
+        return username
+
+@app.route('/protected')
+@auth.login_required
+def protected():
+    return "This is a protected route. You are logged in as: " + auth.current_user()
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5001))
-    app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
     # app.run(host='0.0.0.0', port=5001)
