@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: nightingale-app
-    runtime: python
-    plan: free
-    region: oregon
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
