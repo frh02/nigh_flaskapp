@@ -1,1 +1,0 @@
-gunicorn -b 0.0.0.0:$PORT app:app --timeout 300 --workers 1 --threads 1
