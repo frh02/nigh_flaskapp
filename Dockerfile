@@ -37,8 +37,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+# Copy and make start script executable
+COPY start.sh .
+RUN chmod +x start.sh
+
 # Create non-root user
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
-EXPOSE $PORT
+EXPOSE 8080

@@ -1,4 +1,2 @@
 #!/bin/bash
-cd /home/site/wwwroot
-mkdir -p static/files
-gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 0 --preload app:app
+exec gunicorn --bind 0.0.0.0:${PORT:-8080} --workers 2 --timeout 200 app:app
